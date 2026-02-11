@@ -13,7 +13,7 @@ void bess_destroy(BESSHandle* handle);
 void bess_set_curve(BESSHandle *handle, const double* curve, int size);
 void bess_set_dispatch_interval(BESSHandle *handle, int start, int end);
 
-void bess_discharge(BESSHandle *handle);
+void bess_run_dispatch(BESSHandle *handle);
 
 double bess_daily_energy(BESSHandle *handle);
 double bess_monthly_energy(BESSHandle *handle);

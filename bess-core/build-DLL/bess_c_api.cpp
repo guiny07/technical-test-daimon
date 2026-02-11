@@ -25,7 +25,7 @@ void bess_set_dispatch_interval(BESSHandle* handle, int start, int end) {
     handle->instance.setDispatchInterval(start, end);
 }
 
-void bess_discharge(BESSHandle* handle) {
+void bess_run_dispatch(BESSHandle* handle) {
     handle->instance.batteryDischarge();
 }
 

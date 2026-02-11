@@ -2,4 +2,10 @@
 
 .idea
 
+# Caches e venv do Python
 bess-python/venv
+bess-python/bess_api/__pycache__
+
+
+# DLL compilada em C++
+bess-core/build-DLL/libbess.so
