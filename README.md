@@ -35,3 +35,25 @@ O projeto foi desenvolvido com as linguagens C++ e Python, sendo que C++ foi uti
 
 ### Detalhes da implementação 
 
+A classe em C++ e a API para exportação ao Python se encontram no diretório build-DLL em bess-core. 
+Utilização de uma biblioteca intermediária entre o código orientado à objetos em C++ (mais complexo) e a Ctypes do Python que só identifica C puro. Também é por meio dela que é realizada a captura das exceções lançadas em C++. 
+
+No diretório bess_api em bess-python se encontram _bess_c.py, o qual define as assinaturas dos métodos a serem lidos pelo Python, e bess.py, que é uma classe "wrapper" para encapsular os métodos com assinaturas mais "baixo-nível", tornando a utilização da DLL mais intuitiva e simples (do ponto de vista do usuário é como se fosse uma simples classe Python). 
+
+Por fim, o uso da DLL pode ser feita simplesmente fazendo a importação da classe BESS em algum script ou notebook Python. 
+
+## Como compilar e executar
+
+Dentro do diretório bess-core execute o comando abaixo para compilar a DLL em C++: 
+
+```bash
+g++ -fPIC -shared     BESS.cpp     build-DLL/bess_c_api.cpp     -I.     -Ibuild-DLL     -o build-DLL/libbess.so
+```
+
+Isso irá gerar o arquivo libbess.so em build-DLL/. 
+
+Por fim, no diretório bess-python, certifique-se de que no diretório bess_api se encontram os arquivos __init__.py, _bess_c.py e bess.py. Daí é só importar em um arquivo .py ou notebook: 
+
+```python
+from bess import BESS
+```

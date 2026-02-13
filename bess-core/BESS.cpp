@@ -71,6 +71,7 @@ void BESS::setDispatchInterval(int start, int end){
     Get da curva resultante para fins de análise e plotagem.
 */
 std::vector<double> BESS::getResultCurve() const{
+    
     if(!dispatchComputed)
         throw std::logic_error("Impossível obter curva resultante. A descarga ainda não foi computada.");
     

@@ -10,16 +10,18 @@ typedef struct BESSHandle BESSHandle;
 BESSHandle* bess_create();
 void bess_destroy(BESSHandle* handle);
 
-void bess_set_curve(BESSHandle *handle, const double* curve, int size);
-void bess_set_dispatch_interval(BESSHandle *handle, int start, int end);
+int bess_set_curve(BESSHandle *handle, const double* curve, int size);
+int bess_set_dispatch_interval(BESSHandle *handle, int start, int end);
 
-void bess_run_dispatch(BESSHandle *handle);
+int bess_run_dispatch(BESSHandle *handle);
 
-double bess_daily_energy(BESSHandle *handle);
-double bess_monthly_energy(BESSHandle *handle);
-double bess_get_result_at(BESSHandle *handle, int t);
+int bess_daily_energy(BESSHandle *handle, double *out);
+int bess_monthly_energy(BESSHandle *handle, double *out);
+int bess_get_result_at(BESSHandle *handle, int t, double *out);
 
-void bess_get_result_curve(BESSHandle* handle, double* out_curve, int size);
+int bess_get_result_curve(BESSHandle* handle, double *out_curve, int size);
+
+const char* bess_get_last_error();
 
 #ifdef __cplusplus
 }

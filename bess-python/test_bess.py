@@ -15,8 +15,8 @@ curve = np.array([
 # set da curva original no objeto
 bess.set_curve(curve)
 
-print(f"Energia diária armazenada: {bess.get_daily_energy:.2f}")
-print(f"Energia mensal armazenada: {bess.get_monthly_energy:.2f}")
+print(f"Energia diária armazenada: {bess.daily_energy:.2f}")
+print(f"Energia mensal armazenada: {bess.monthly_energy:.2f}")
 
-bess.set_dispatch(17, 5)
+bess.set_dispatch(25, 5)
 print("Intervalo de despacho definido das 17h às 05h.")
